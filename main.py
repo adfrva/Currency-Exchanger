@@ -1,12 +1,24 @@
 import requests
+from datetime import datetime
+
+def get_string_date():
+    date = datetime.now()
+
+    year = date.strftime("%Y")
+    month = date.strftime("%m")
+    day = date.strftime("%d")
+    todays_date = f"{year}-{month}-{day}"
+    
+    return todays_date
+
 print("Welcome to the Python Currency Exchange!")
 
-url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@/latest/"
+today = get_string_date()
+base_url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/"
+
+print(today)
 # Format for API calls
 # https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@/latest/{date}/{endpoint}
-
-
-api_response = requests.get("https://api.exchangeratesapi.io/v1/")
 
 from_currency = input("Which currency are you exchanging?: ")
 to_currency = input("Which currency would you like?: ")
